@@ -10,7 +10,7 @@ object second {
 
   // Задаем пути к файлам "u.data" и "u.item"
   val fileNames =
-    Map("u.data" -> "/home/pmk/work/cinimex/task/data/ml-100k/u.data", "u.item" -> "/home/pmk/work/cinimex/task/data/ml-100k/u.item")
+    Map("u.data" -> "u.data", "u.item" -> "u.item")
 
   val spark: SparkSession =
     SparkSession.builder().master(master = "local[2]").getOrCreate()
@@ -60,7 +60,6 @@ object second {
           .select(col("movie id"), col("movie title")),
         data_agg("item id") === item_df("movie id"), "inner")
       .select(col("movie title").alias("item id"), col("rating"), col("количество"))
-
 
     // аггрегируем оценки в Seq
     val final_agg = data_agg_named.union(all_data_agg)
