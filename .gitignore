@@ -3,6 +3,7 @@
 project/
 src/test/
 target/
+src/main/resources
 
 
 
